@@ -1,0 +1,34 @@
+@startchen hello
+
+entity "Employee" as e {
+  EmployeeID  <<key>>
+  Name
+  Address
+  Position
+  DateOfBirth
+  Age : derived
+}
+entity "Department" as d {
+   DepartmentID  <<key>>
+  DepartmentName
+}
+
+entity "Project" as p {
+  ProjectID <<key>>
+  ProjectName
+}
+
+relationship WorksIn{
+}
+
+relationship ParticipatesIn{
+}
+
+e -n- WorksIn
+d -1- WorksIn
+
+e -n- ParticipatesIn
+p -m- ParticipatesIn
+
+@endchen
+
